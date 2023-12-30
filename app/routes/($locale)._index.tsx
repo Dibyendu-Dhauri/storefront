@@ -24,6 +24,7 @@ export async function loader({params, context}: LoaderFunctionArgs) {
   }
 
   const {shop, hero} = await context.storefront.query(HOMEPAGE_SEO_QUERY, {
+    // variables: {handle: 'tastyFood'},
     variables: {handle: 'freestyle'},
   });
 
@@ -86,7 +87,6 @@ export default function Homepage() {
 
   // TODO: skeletons vs placeholders
   const skeletons = getHeroPlaceholder([{}, {}, {}]);
-
   return (
     <>
       {primaryHero && (
@@ -101,7 +101,7 @@ export default function Homepage() {
               return (
                 <ProductSwimlane
                   products={products}
-                  title="Featured Products"
+                  title="Featured products"
                   count={4}
                 />
               );
